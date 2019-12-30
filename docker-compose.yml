@@ -12,7 +12,8 @@ services:
   proxy:
     image: nginx:1.17-alpine
     ports:
-      - 8080:80
+      - 80:80
+      - 443:443
     depends_on:
       - nextcloud 
     volumes:
@@ -40,7 +41,7 @@ volumes:
   db:
   nextcloud:
   cert_letsencrypt:
+          external: true
   apps:
   config:
   data:
-

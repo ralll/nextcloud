@@ -38,5 +38,5 @@ Backup any usefull data in volumes. The will be lost after deleting them.
 
 .. code-block:: bash
 
-  docker volume rm $(docker volume ls -q | grep cloud)
+  docker volume rm $(docker volume ls -q | grep cloud_)
 
