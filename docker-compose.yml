@@ -4,8 +4,8 @@ services:
   db:
     image: postgres:12-alpine
     environment:
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=nc_passwd
+      - POSTGRES_USER=nc_user
     volumes:
       - db:/var/lib/postgresql/data
 
@@ -17,21 +17,30 @@ services:
       - nextcloud 
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - cert_letsencrypt:/letsencrypt:ro
       - nextcloud:/var/www/html:ro
 
   nextcloud:
-    image: nextcloud:15-fpm-alpine
+    image: nextcloud:17-fpm-alpine
     depends_on:
       - db
     volumes:
       - nextcloud:/var/www/html
+      - apps:/var/www/html/custom_apps
+      - config:/var/www/html/config
+      - data:/var/www/html/data
+
     environment:
       - POSTGRES_HOST=db
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=nc_passwd
+      - POSTGRES_USER=nc_user
       - POSTGRES_DB=nextcloud
 
 volumes:
   db:
   nextcloud:
+  cert_letsencrypt:
+  apps:
+  config:
+  data:
 
