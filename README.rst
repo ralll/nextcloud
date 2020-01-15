@@ -6,9 +6,11 @@ Descrition
 Introduction
 ************
 
-A docker-compose to create a Nextcloud server. The stack uses Postgres as database, and Nginx as webserver and reserve proxy.
+A docker-compose to create a Nextcloud server. The stack uses Postgres as database, Nginx as webserver, and reserve proxy.
 
-This configuration is using HTTPS and the certificates are in a volume container. Follow `this steps <https://gitlab.com/raill/lets-encrypt-certificate-from-container>` for generating a letsencrypt certificate with container, or ajust the docker-compose file.
+This configuration is using HTTPS and the certificates are in a volume container. Follow `this steps <https://gitlab.com/raill/lets-encrypt-certificate-from-container>`_ for generating a letsencrypt certificate with container, or ajust the docker-compose file.
+
+It is important to change the POSTGRES_PASSWORD variable due to security issues.
 
 **********
 Installion
