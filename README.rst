@@ -23,11 +23,14 @@ From the same folder of the dockerfile and nginx configurations.
 
 .. code-block:: bash
 
-  docker-compose -p cloud up
+  docker-compose -p cloud up -d
 
 ******
 Remove
 ******
+
+Containers
+==========
 
 From the same folder of the dockerfile and nginx configurations.
 
@@ -39,7 +42,14 @@ From the same folder of the dockerfile and nginx configurations.
 
   docker-compose -p cloud rm
 
-Backup any usefull data in volumes. The will be lost after deleting them.
+Volumes
+=======
+
+The **volumes** keep data after containers' releases updates.
+
+Be sure before remove them.
+
+Backup any usefull data in volumes. The data will be lost after deleting the volumes.
 
 .. code-block:: bash
 
