@@ -55,7 +55,7 @@ Set the `maintenance mode <https://docs.nextcloud.com/server/stable/admin_manual
 
     docker exec -u www-data -it cloud_nextcloud_1 sh
 
-    php occ maintenance:mode --off
+    php occ maintenance:mode --on
 
 The `Nextcloud documention <https://docs.nextcloud.com/server/latest/admin_manual/maintenance/upgrade.html>`_ recommends **do not** skipping major releases.
 
