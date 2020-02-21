@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   db:
-    image: postgres:12-alpine
+    image: postgres:12.2-alpine
     environment:
       - POSTGRES_PASSWORD=nc_passwd
       - POSTGRES_USER=nc_user
@@ -10,7 +10,7 @@ services:
       - db:/var/lib/postgresql/data
 
   proxy:
-    image: nginx:1.17-alpine
+    image: nginx:1.17.8-alpine
     ports:
       - 80:80
       - 443:443
@@ -23,7 +23,7 @@ services:
       - acme-challenge:/tmp/letsencrypt/www
 
   nextcloud:
-    image: nextcloud:17-fpm-alpine
+    image: nextcloud:18.0.1-fpm-alpine
     depends_on:
       - db
     volumes:
